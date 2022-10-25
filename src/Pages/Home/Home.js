@@ -6,7 +6,7 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 const Home = () => {
     return (
         <div>
-            <div className='lg:mr-20 lg:ml-20 mt-10 border-4 border-yellow-200 home-background rounded-xl'>
+            <div className='lg:mr-20 lg:ml-20 mt-10 border-4 border-yellow-200 home-background rounded-xl '>
                  <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4'>
                     <div className='p-12'>
                         <h2 className='font-mono text-5xl font-bold text-left'>Learn Technologies from us and Become a Professional in the field...</h2>
