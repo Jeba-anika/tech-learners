@@ -1,8 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext)
 
     const handleLogin = (event)=>{
         event.preventDefault();
@@ -10,6 +13,15 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+        signIn(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+            form.reset();
+        })
+        .catch(error=>{
+            console.error(error)
+        })
     }
 
 
@@ -45,8 +57,8 @@ const Login = () => {
                     </div>
                     <hr />
                     <div className='mt-4'>
-                        <button className="btn btn-outline btn-warning lg:mr-7 md:mr-7 md:ml-0 lg:ml-0 sm:ml-20 ml-20"><FaGoogle className='mr-2'></FaGoogle>Login Using Google</button>
-                        <button className="btn btn-outline btn-warning sm:mt-4 mt-4 sm:ml-20 ml-20"><FaGithub className='mr-2'></FaGithub>Login Using GitHub</button>
+                        <button className="btn btn-warning lg:mr-7 md:mr-7 md:ml-0 lg:ml-0 sm:ml-20 ml-20"><FaGoogle className='mr-2'></FaGoogle>Login Using Google</button>
+                        <button className="btn btn-warning sm:mt-4 mt-4 sm:ml-20 ml-20"><FaGithub className='mr-2'></FaGithub>Login Using GitHub</button>
                     </div>
                 </div>
             </div>
