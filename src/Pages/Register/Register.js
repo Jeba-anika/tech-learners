@@ -1,10 +1,11 @@
+import { updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateUserProfile} = useContext(AuthContext)
 
     const handleRegister = (event)=>{
         event.preventDefault();
@@ -13,16 +14,28 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        console.log(name, photoURL, email, password)
         createUser(email, password)
         .then(result =>{
             const user =result.user;
             console.log(user)
             form.reset()
+            handleUpdateUserProfile(name, photoURL)
         })
         .then(error =>{
             console.error(error)
         })
+    }
+
+
+    const handleUpdateUserProfile = (name, photoURL) =>{
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(()=>{})
+        .catch(error => console.error(error))
     }
 
 
@@ -39,7 +52,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Your Name</span>
                                 </label>
-                                <input name='name' type="text" placeholder="Your Name" className="input input-bordered" />
+                                <input name='name' type="name" placeholder="Your Name" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
