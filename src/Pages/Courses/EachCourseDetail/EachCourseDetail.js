@@ -15,6 +15,9 @@ const EachCourseDetail = () => {
     const courseDetails = useLoaderData();
     const { title, image_url, details, instructor, others_info, rating, total_learners } = courseDetails
     console.log(courseDetails)
+
+
+
     return (
         <div  className='lg:mr-20 lg:ml-20 mt-5 md:mr-20 md:ml-20 sm:mr-5 mr-5 sm:ml-5 ml-5'>
             <div className='grid lg:grid-cols-6 gap-4 w-full'>
@@ -51,7 +54,7 @@ const EachCourseDetail = () => {
                         <p className='mt-2'><span className='text-xl font-semibold'><TbCertificate className='inline mr-4'></TbCertificate>Certificate:</span> <span className='font-bold text-2xl'>{others_info.certification ? <p className='inline'>Available</p> : <p className='inline'>Not Available</p>}</span></p>
                     </div>
                     <div >
-                        <div className="stats stats-vertical lg:stats-horizontal shadow mt-5 lg:ml-0 md:ml-0 sm:ml-20 ml-20">
+                        <div className="stats stats-vertical lg:stats-horizontal shadow mt-5 lg:ml-0 md:ml-0 sm:ml-10 ml-10">
 
                             <div className="stat">
                                 <div className="stat-title">Duration</div>

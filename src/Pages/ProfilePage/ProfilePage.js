@@ -29,7 +29,7 @@ const ProfilePage = () => {
 
 
     return (
-        <div>
+        <div className='lg:ml-48 md:ml-96 lg:mr-0 md:mr-0 sm:mr-5 sm:ml-5 mr-5 ml-5'>
             <div className='lg:ml-96 mt-10'>
                 <div className='mt-5'>
                     {user?.photoURL ?
@@ -79,7 +79,7 @@ const ProfilePage = () => {
                                 <input name='email' type="text" placeholder="Your Email" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-warning">Register</button>
+                                <button className="btn btn-warning">Update Profile</button>
                             </div>
                         </form>
                         <div className="modal-action">
