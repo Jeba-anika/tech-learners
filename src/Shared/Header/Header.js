@@ -42,7 +42,7 @@ const Header = () => {
                 <div className="navbar-end">
                     {
                         user?.uid ? <>
-                            <Link className="tooltip tooltip-warning tooltip-bottom" data-tip={user?.displayName ? user?.displayName : 'User'}>
+                            <Link to='/profile' className="tooltip tooltip-warning tooltip-bottom" data-tip={user?.displayName ? user?.displayName : 'User'}>
                                 {
                                     user?.photoURL ?
                                         <>

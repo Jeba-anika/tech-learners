@@ -6,6 +6,7 @@ import Courses from "../Pages/Courses/Courses";
 import EachCourseDetail from "../Pages/Courses/EachCourseDetail/EachCourseDetail";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import ProfilePage from "../Pages/ProfilePage/ProfilePage";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -51,6 +52,10 @@ export const routes = createBrowserRouter([
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                 loader: ({params}) => fetch(`https://tech-learners-server.vercel.app/all-courses/${params.id}`)
+            },
+            {
+                path: '/profile',
+                element: <ProfilePage></ProfilePage>
             }
         ]
     }
