@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
     const {signIn, signInWithGoogle, signInWithGitHub} = useContext(AuthContext)
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation()
 
@@ -26,6 +28,7 @@ const Login = () => {
         })
         .catch(error=>{
             console.error(error)
+            setError(error.message)
         })
     }
 
@@ -76,6 +79,9 @@ const Login = () => {
                                 <input required name='password' type="password" placeholder="password" className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                </label>
+                                <label className="label text-red-600">
+                                    <p>{error}</p>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
